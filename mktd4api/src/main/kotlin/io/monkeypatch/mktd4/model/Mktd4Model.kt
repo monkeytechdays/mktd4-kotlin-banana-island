@@ -56,24 +56,14 @@ enum class MapTile(val value: Int) {
 data class BoardTiles(val map: Array<Array<MapTile>>) {
 
     companion object {
-        fun from(mapInt: Array<Array<Int>>): BoardTiles {
-            val tiles = mapInt.asSequence().map { it.asSequence().map { MapTile.from(it, false) }.toTypedArray() }.toTypedArray()
-            return BoardTiles(tiles)
-        }
+        fun from(mapInt: Array<Array<Int>>): BoardTiles =TODO()
     }
 
-    fun locateFirst(id: Int): Position? {
-        return map.mapIndexed { posY, arrayOfMapTiles ->
-            val posX = arrayOfMapTiles.indexOfFirst { it.value == id }
-            if (posY >= 0) Position(posX, posY) else null
-        }.filterNotNull().firstOrNull()
-    }
+    fun contains(tile: MapTile) = TODO()
 
-    fun contains(tile: MapTile) = map.asSequence().flatMap { it.asSequence() }.any { it == tile }
+    fun none(tile: MapTile) = TODO()
 
-    fun none(tile: MapTile) = !contains(tile)
-
-    fun count(tile: MapTile) = map.asSequence().flatMap { it.asSequence() }.count { it.equals(tile) }
+    fun count(tile: MapTile) = TODO()
 
 }
 
