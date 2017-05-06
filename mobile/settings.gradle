@@ -1,0 +1,3 @@
+include ':mktd4api'
+
+project(":mktd4api").projectDir = file("../mktd4api")

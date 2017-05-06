@@ -1,0 +1,25 @@
+*.iml
+.idea/
+.gradle
+
+# Gradle files
+.gradle/
+build/
+
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/capturess
+.externalNativeBuild
+/.idea/
+/gradle/
+/gradlew
+/gradlew.bat
+/app/build/
+/gamer/build/
+/projectFilesBackup/
+/projectFilesBackup1/
+/player/build/
+/starter/build/

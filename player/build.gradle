@@ -1,0 +1,50 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$parent.ext.kotlin_version")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:$parent.ext.kotlin_version")
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_1_6
+targetCompatibility = JavaVersion.VERSION_1_6
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.6"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.6"
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-webflux')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:$parent.ext.kotlin_version")
+    compile("org.jetbrains.kotlin:kotlin-reflect:$parent.ext.kotlin_version")
+
+    compile project(":mktd4api")
+
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$parent.ext.kotlin_version"
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
